@@ -2,7 +2,6 @@ package cinema.configuration;
 
 import cinema.model.CinemaRoom;
 import cinema.model.Seat;
-import cinema.model.Ticket;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import java.util.ArrayList;

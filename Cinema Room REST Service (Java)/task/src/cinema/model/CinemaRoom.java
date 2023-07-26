@@ -12,8 +12,4 @@ public class CinemaRoom {
     private int totalColumns;
     private List<Seat> availableSeats;
     private List<Ticket> ticketsList;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master

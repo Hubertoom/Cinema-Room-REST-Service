@@ -6,17 +6,10 @@ import cinema.exceptions.WrongTokenError;
 import cinema.model.CinemaRoom;
 import cinema.model.Seat;
 import cinema.model.Ticket;
-<<<<<<< HEAD
-import cinema.model.dto.CinemaRoomDTO;
-import cinema.model.dto.Mapper;
-import cinema.model.dto.SeatDTO;
-import cinema.model.dto.TicketDTO;
-=======
 import cinema.configuration.dto.CinemaRoomDTO;
 import cinema.configuration.dto.Mapper;
 import cinema.configuration.dto.SeatDTO;
 import cinema.configuration.dto.TicketDTO;
->>>>>>> master
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -54,21 +47,6 @@ public class CinemaService {
         cinemaRoom.getTicketsList().add(ticket);
 
         return Mapper.convertTicketToTicketDTO(ticket);
-<<<<<<< HEAD
-    }
-
-    public TicketDTO returnTicket(TicketDTO ticketDTO) {
-        Ticket ticket = cinemaRoom.getTicketsList().stream()
-                .filter(t -> t.token().equals(ticketDTO.token()))
-                .findAny()
-                .orElseThrow(() -> new WrongTokenError("Wrong token!"));
-
-        ticket.seat().setOccupied(false);
-        cinemaRoom.getTicketsList().remove(ticket);
-
-        return Mapper.convertTicketToTicketDTO(ticket);
-=======
->>>>>>> master
     }
 
     public TicketDTO returnTicket(TicketDTO ticketDTO) {

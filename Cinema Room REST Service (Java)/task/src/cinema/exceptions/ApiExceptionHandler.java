@@ -45,8 +45,5 @@ public class ApiExceptionHandler {
                 HttpStatus.BAD_REQUEST
         );
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master
+
