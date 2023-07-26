@@ -49,13 +49,15 @@ public class CinemaService {
         return Mapper.convertTicketToTicketDTO(ticket);
     }
 
-    public String returnTicket(TicketDTO ticketDTO) {
+    public TicketDTO returnTicket(TicketDTO ticketDTO) {
         Ticket ticket = cinemaRoom.getTicketsList().stream()
                 .filter(t -> t.token().equals(ticketDTO.token()))
                 .findAny()
                 .orElseThrow(() -> new WrongTokenError("Wrong token!"));
-        ticket.seat().setOccupied(false);
 
-        return ticket.token();
+        ticket.seat().setOccupied(false);
+        cinemaRoom.getTicketsList().remove(ticket);
+
+        return Mapper.convertTicketToTicketDTO(ticket);
     }
 }

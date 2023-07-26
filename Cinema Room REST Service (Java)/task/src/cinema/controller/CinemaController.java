@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @AllArgsConstructor
 public class CinemaController {
@@ -32,9 +34,9 @@ public class CinemaController {
     }
 
     @PostMapping("/return")
-    public ResponseEntity<String> returnTicket(@RequestBody TicketDTO ticketDTO) {
+    public ResponseEntity<Object> returnTicket(@RequestBody TicketDTO ticketDTO) {
         return ResponseEntity
                 .ok()
-                .body(cinemaService.returnTicket(ticketDTO));
+                .body(Map.of("returned_ticket", cinemaService.returnTicket(ticketDTO).seat()));
     }
 }
