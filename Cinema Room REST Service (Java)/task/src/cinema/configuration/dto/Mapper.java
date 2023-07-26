@@ -1,7 +1,8 @@
-package cinema.model.dto;
+package cinema.configuration.dto;
 
 import cinema.model.CinemaRoom;
 import cinema.model.Seat;
+import cinema.model.Ticket;
 
 import java.util.List;
 
@@ -22,5 +23,9 @@ public class Mapper {
                 cinemaRoom.getTotalColumns(),
                 seatsDTO
         );
+    }
+
+    public static TicketDTO convertTicketToTicketDTO(Ticket ticket) {
+        return new TicketDTO(ticket.token(), convertSeatToSeatDTO(ticket.seat()));
     }
 }
