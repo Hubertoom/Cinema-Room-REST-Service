@@ -21,7 +21,7 @@ public class CinemaConfiguration {
         for (int row = 1; row < 10; row++) {
             for (int col = 1; col < 10; col++) {
                 int price = row <= 4 ? 10 : 8;
-                seats.add(new Seat(row, col, price));
+                seats.add(new Seat(row, col, price, false));
             }
         }
         return seats;
