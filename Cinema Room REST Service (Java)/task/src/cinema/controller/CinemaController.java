@@ -2,6 +2,7 @@ package cinema.controller;
 
 import cinema.model.dto.CinemaRoomDTO;
 import cinema.model.dto.SeatDTO;
+import cinema.model.dto.TicketDTO;
 import cinema.service.CinemaService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -24,9 +25,16 @@ public class CinemaController {
     }
 
     @PostMapping("/purchase")
-    public ResponseEntity<SeatDTO> bookASeat(@RequestBody SeatDTO seatDTO) {
+    public ResponseEntity<TicketDTO> bookASeat(@RequestBody SeatDTO seatDTO) {
         return ResponseEntity
                 .ok()
                 .body(cinemaService.bookASeat(seatDTO));
+    }
+
+    @PostMapping("/return")
+    public ResponseEntity<String> returnTicket(@RequestBody TicketDTO ticketDTO) {
+        return ResponseEntity
+                .ok()
+                .body(cinemaService.returnTicket(ticketDTO));
     }
 }

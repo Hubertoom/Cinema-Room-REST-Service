@@ -2,17 +2,20 @@ package cinema.service;
 
 import cinema.exceptions.RowOrColumOutOfBoundException;
 import cinema.exceptions.TicketSoldException;
+import cinema.exceptions.WrongTokenError;
 import cinema.model.CinemaRoom;
 import cinema.model.Seat;
+import cinema.model.Ticket;
 import cinema.model.dto.CinemaRoomDTO;
 import cinema.model.dto.Mapper;
 import cinema.model.dto.SeatDTO;
+import cinema.model.dto.TicketDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -24,7 +27,7 @@ public class CinemaService {
         return Mapper.convertCinemaRoomToCinemaRoomDTO(cinemaRoom);
     }
 
-    public SeatDTO bookASeat(SeatDTO seatDTO) {
+    public TicketDTO bookASeat(SeatDTO seatDTO) {
         Optional<Seat> optionalSeat = cinemaRoom.getAvailableSeats().stream()
                 .filter(seat -> Objects.equals(seat.getRow(), seatDTO.row()) &&
                         Objects.equals(seat.getColumn(), seatDTO.column()))
@@ -38,8 +41,21 @@ public class CinemaService {
             throw new TicketSoldException("The ticket has been already purchased!");
         }
 
-        optionalSeat.get().setOccupied(true);
+        Seat seat = optionalSeat.get();
+        seat.setOccupied(true);
+        Ticket ticket = new Ticket(UUID.randomUUID().toString(), seat);
+        cinemaRoom.getTicketsList().add(ticket);
 
-        return Mapper.convertSeatToSeatDTO(optionalSeat.get());
+        return Mapper.convertTicketToTicketDTO(ticket);
+    }
+
+    public String returnTicket(TicketDTO ticketDTO) {
+        Ticket ticket = cinemaRoom.getTicketsList().stream()
+                .filter(t -> t.token().equals(ticketDTO.token()))
+                .findAny()
+                .orElseThrow(() -> new WrongTokenError("Wrong token!"));
+        ticket.seat().setOccupied(false);
+
+        return ticket.token();
     }
 }

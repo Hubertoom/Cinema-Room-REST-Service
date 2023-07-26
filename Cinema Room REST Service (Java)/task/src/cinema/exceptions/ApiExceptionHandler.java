@@ -33,4 +33,16 @@ public class ApiExceptionHandler {
                 HttpStatus.BAD_REQUEST
         );
     }
+
+    @ExceptionHandler(value = WrongTokenError.class)
+    public ResponseEntity<Object> handleWrongTicketException(
+            WrongTokenError e
+    ) {
+        ApiException apiException = new ApiException(e.getMessage());
+
+        return new ResponseEntity<>(
+                apiException,
+                HttpStatus.BAD_REQUEST
+        );
+    }
 }
