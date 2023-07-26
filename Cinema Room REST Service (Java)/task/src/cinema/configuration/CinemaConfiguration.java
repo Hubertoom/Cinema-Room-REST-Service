@@ -18,9 +18,10 @@ public class CinemaConfiguration {
     private List<Seat> getSeats() {
         List<Seat> seats = new ArrayList<>();
 
-        for (int i = 1; i < 10; i++) {
-            for (int j = 1; j < 10; j++) {
-                seats.add(new Seat(i, j));
+        for (int row = 1; row < 10; row++) {
+            for (int col = 1; col < 10; col++) {
+                int price = row <= 4 ? 10 : 8;
+                seats.add(new Seat(row, col, price));
             }
         }
         return seats;
