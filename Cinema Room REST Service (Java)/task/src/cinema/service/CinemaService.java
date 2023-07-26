@@ -10,7 +10,6 @@ import cinema.model.dto.SeatDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
