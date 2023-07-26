@@ -1,4 +1,4 @@
-package cinema.model.dto;
+package cinema.configuration.dto;
 
 import cinema.model.CinemaRoom;
 import cinema.model.Seat;
@@ -28,4 +28,8 @@ public class Mapper {
     public static TicketDTO convertTicketToTicketDTO(Ticket ticket) {
         return new TicketDTO(ticket.token(), convertSeatToSeatDTO(ticket.seat()));
     }
+<<<<<<< HEAD:Cinema Room REST Service (Java)/task/src/cinema/model/dto/Mapper.java
 }
+=======
+}
+>>>>>>> master:Cinema Room REST Service (Java)/task/src/cinema/configuration/dto/Mapper.java

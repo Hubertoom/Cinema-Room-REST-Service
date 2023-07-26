@@ -1,4 +1,4 @@
-package cinema.model.dto;
+package cinema.configuration.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

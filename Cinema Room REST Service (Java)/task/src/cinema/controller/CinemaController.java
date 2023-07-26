@@ -1,8 +1,14 @@
 package cinema.controller;
 
+<<<<<<< HEAD
 import cinema.model.dto.CinemaRoomDTO;
 import cinema.model.dto.SeatDTO;
 import cinema.model.dto.TicketDTO;
+=======
+import cinema.configuration.dto.CinemaRoomDTO;
+import cinema.configuration.dto.SeatDTO;
+import cinema.configuration.dto.TicketDTO;
+>>>>>>> master
 import cinema.service.CinemaService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -39,4 +45,8 @@ public class CinemaController {
                 .ok()
                 .body(Map.of("returned_ticket", cinemaService.returnTicket(ticketDTO).seat()));
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master
