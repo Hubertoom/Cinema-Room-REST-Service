@@ -1,6 +1,8 @@
 !gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 
+*.class
+
 **/out/**
 .gradle/
 .idea/
