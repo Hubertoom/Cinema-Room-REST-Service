@@ -28,4 +28,8 @@ public class Mapper {
     public static TicketDTO convertTicketToTicketDTO(Ticket ticket) {
         return new TicketDTO(ticket.token(), convertSeatToSeatDTO(ticket.seat()));
     }
+
+    public static ReturnedTicketDTO convertTicketToReturnedTicketDTO(Ticket ticket) {
+        return new ReturnedTicketDTO(convertSeatToSeatDTO(ticket.seat()));
+    }
 }

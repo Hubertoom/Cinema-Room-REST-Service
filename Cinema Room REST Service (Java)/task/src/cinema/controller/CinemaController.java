@@ -1,9 +1,9 @@
 package cinema.controller;
 
 import cinema.configuration.dto.CinemaRoomDTO;
+import cinema.configuration.dto.ReturnedTicketDTO;
 import cinema.configuration.dto.SeatDTO;
 import cinema.configuration.dto.TicketDTO;
-
 import cinema.service.CinemaService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 @AllArgsConstructor
@@ -35,10 +33,9 @@ public class CinemaController {
     }
 
     @PostMapping("/return")
-    public ResponseEntity<Object> returnTicket(@RequestBody TicketDTO ticketDTO) {
+    public ResponseEntity<ReturnedTicketDTO> returnTicket(@RequestBody TicketDTO ticketDTO) {
         return ResponseEntity
                 .ok()
-                .body(Map.of("returned_ticket", cinemaService.returnTicket(ticketDTO).seat()));
+                .body(cinemaService.returnTicket(ticketDTO));
     }
-
 }

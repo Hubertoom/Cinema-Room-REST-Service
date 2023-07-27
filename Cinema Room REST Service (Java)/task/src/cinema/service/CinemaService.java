@@ -1,15 +1,12 @@
 package cinema.service;
 
+import cinema.configuration.dto.*;
 import cinema.exceptions.RowOrColumOutOfBoundException;
 import cinema.exceptions.TicketSoldException;
 import cinema.exceptions.WrongTokenError;
 import cinema.model.CinemaRoom;
 import cinema.model.Seat;
 import cinema.model.Ticket;
-import cinema.configuration.dto.CinemaRoomDTO;
-import cinema.configuration.dto.Mapper;
-import cinema.configuration.dto.SeatDTO;
-import cinema.configuration.dto.TicketDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +46,7 @@ public class CinemaService {
         return Mapper.convertTicketToTicketDTO(ticket);
     }
 
-    public TicketDTO returnTicket(TicketDTO ticketDTO) {
+    public ReturnedTicketDTO returnTicket(TicketDTO ticketDTO) {
         Ticket ticket = cinemaRoom.getTicketsList().stream()
                 .filter(t -> t.token().equals(ticketDTO.token()))
                 .findAny()
@@ -58,6 +55,6 @@ public class CinemaService {
         ticket.seat().setOccupied(false);
         cinemaRoom.getTicketsList().remove(ticket);
 
-        return Mapper.convertTicketToTicketDTO(ticket);
+        return Mapper.convertTicketToReturnedTicketDTO(ticket);
     }
 }
