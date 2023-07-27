@@ -4,12 +4,6 @@
 # Log file
 *.log
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Package Files #
 *.jar
 *.war
@@ -19,12 +13,9 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
-
 #files from JetBrains Academy
-gradle/
+!gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
 .gradle/
 .idea/
 build/
@@ -35,6 +26,3 @@ Cinema Room REST Service (Java)/A change of plans
 Cinema Room REST Service (Java)/Take your seat
 Cinema Room REST Service (Java)/The show begins
 Cinema Room REST Service (Java)/The statistics
-
-!gradle-wrapper.jar
-gradle/wrapper/gradle-wrapper.properties
