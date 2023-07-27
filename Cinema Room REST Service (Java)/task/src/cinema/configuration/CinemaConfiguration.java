@@ -2,12 +2,15 @@ package cinema.configuration;
 
 import cinema.model.CinemaRoom;
 import cinema.model.Seat;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
+@AllArgsConstructor
 public class CinemaConfiguration {
 
     @Bean

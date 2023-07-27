@@ -2,6 +2,7 @@ package cinema.configuration.dto;
 
 import cinema.model.CinemaRoom;
 import cinema.model.Seat;
+import cinema.model.Statistics;
 import cinema.model.Ticket;
 
 import java.util.List;
@@ -31,5 +32,13 @@ public class Mapper {
 
     public static ReturnedTicketDTO convertTicketToReturnedTicketDTO(Ticket ticket) {
         return new ReturnedTicketDTO(convertSeatToSeatDTO(ticket.seat()));
+    }
+
+    public static StatisticsDTO convertStatisticToStatisticDTO(Statistics statistics) {
+        return new StatisticsDTO(
+                statistics.currentIncome(),
+                statistics.numberOfAvailableSeats(),
+                statistics.numberOfPurchasedTickets()
+        );
     }
 }

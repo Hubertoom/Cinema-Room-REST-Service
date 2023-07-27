@@ -17,8 +17,7 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class CinemaService {
-
-    private CinemaRoom cinemaRoom;
+    private final CinemaRoom cinemaRoom;
 
     public CinemaRoomDTO getCinemaRoomDTO() {
         return Mapper.convertCinemaRoomToCinemaRoomDTO(cinemaRoom);
@@ -57,4 +56,5 @@ public class CinemaService {
 
         return Mapper.convertTicketToReturnedTicketDTO(ticket);
     }
+
 }

@@ -45,5 +45,17 @@ public class ApiExceptionHandler {
                 HttpStatus.BAD_REQUEST
         );
     }
+
+    @ExceptionHandler(value = WrongPasswordException.class)
+    public ResponseEntity<Object> handleWrongPasswordException (
+            WrongPasswordException e
+    ) {
+        ApiException apiException = new ApiException(e.getMessage());
+
+        return new ResponseEntity<>(
+                apiException,
+                HttpStatus.UNAUTHORIZED
+        );
+    }
 }
 

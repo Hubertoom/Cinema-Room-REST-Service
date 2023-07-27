@@ -1,22 +1,18 @@
 package cinema.controller;
 
-import cinema.configuration.dto.CinemaRoomDTO;
-import cinema.configuration.dto.ReturnedTicketDTO;
-import cinema.configuration.dto.SeatDTO;
-import cinema.configuration.dto.TicketDTO;
+import cinema.configuration.dto.*;
 import cinema.service.CinemaService;
+import cinema.service.StatisticsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
 public class CinemaController {
 
     private CinemaService cinemaService;
+    private StatisticsService statisticsService;
 
     @GetMapping("/seats")
     public ResponseEntity<CinemaRoomDTO> getCinemaRoom() {
@@ -37,5 +33,14 @@ public class CinemaController {
         return ResponseEntity
                 .ok()
                 .body(cinemaService.returnTicket(ticketDTO));
+    }
+
+    @GetMapping("/stats")
+    public ResponseEntity<StatisticsDTO> getStatistics(
+            @RequestParam(value = "password", required = false) String password
+    ) {
+        return ResponseEntity
+                .ok()
+                .body(statisticsService.getStatistics(password));
     }
 }
