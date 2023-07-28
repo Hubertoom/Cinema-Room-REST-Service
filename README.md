@@ -30,7 +30,7 @@ If port `8080` is busy on your machine, you can specify another
 ``in applicatoin.properties`` -> ``server.port=``port_number 
 
 There are 4 endpoints available:
-- `/seats` endpoint that handles `GET` requests and returns the information about the movie theatre.
+- ***`/seats`*** endpoint that handles `GET` requests and returns the information about the movie theatre.
 The response is a JSON object and has the following format:
 ```json
 {
@@ -56,7 +56,8 @@ The response is a JSON object and has the following format:
 }
 ```
 
-- `/purchase` endpoint that handles `POST` requests and marks a booked ticket as purchased. A request should contain the following data:
+
+- ***`/purchase`*** endpoint that handles `POST` requests and marks a booked ticket as purchased. A request should contain the following data:
     - row — the row number;
     - column — the column number.
     
@@ -93,7 +94,8 @@ The response is a JSON object and has the following format:
     "error": "The number of a row or a column is out of bounds!"
     }
     ```
-- `/return`  endpoint, which will handle `POST` requests and allow customers to refund their tickets.
+    
+- ***`/return`***  endpoint, which will handle `POST` requests and allow customers to refund their tickets.
     *Request body:*
     ```json
     {
@@ -118,7 +120,8 @@ The response is a JSON object and has the following format:
     }
     ```
     
-- `/stats` endpoint that will handle `GET` requests with URL parameters. If the URL parameters contain a password key with a `super_secret` value, return the movie theatre statistics in the following format:
+    
+- ***`/stats`*** endpoint that will handle `GET` requests with URL parameters. If the URL parameters contain a password key with a `super_secret` value, return the movie theatre statistics in the following format:
     ```json
     {
         "current_income": 0,
