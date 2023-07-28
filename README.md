@@ -30,34 +30,34 @@ If port `8080` is busy on your machine, you can specify another
 ``in applicatoin.properties`` -> ``server.port=``port_number 
 
 There are 4 endpoints available:
-- ***`/seats`*** endpoint that handles `GET` requests and returns the information about the movie theatre.
+- **`/seats`** endpoint that handles `GET` requests and returns the information about the movie theatre.
 The response is a JSON object and has the following format:
-```json
-{
-   "total_rows":5,
-   "total_columns":6,
-   "available_seats":[
-      {
-         "row":1,
-         "column":1
-      },
+    ```json
+    {
+        "total_rows":5,
+        "total_columns":6,
+        "available_seats":[
+        {
+            "row":1,
+            "column":1
+        },
 
       ........
 
-      {
-         "row":5,
-         "column":5
-      },
-      {
-         "row":5,
-         "column":6
-      }
-   ]
-}
-```
+        {
+            "row":5,
+            "column":5
+        },
+        {
+            "row":5,
+            "column":6
+        }
+        ]
+    }
+    ```
+<br/ >
 
-
-- ***`/purchase`*** endpoint that handles `POST` requests and marks a booked ticket as purchased. A request should contain the following data:
+- **`/purchase`** endpoint that handles `POST` requests and marks a booked ticket as purchased. A request should contain the following data:
     - row — the row number;
     - column — the column number.
     
@@ -121,7 +121,7 @@ The response is a JSON object and has the following format:
     ```
     
     
-- ***`/stats`*** endpoint that will handle `GET` requests with URL parameters. If the URL parameters contain a password key with a `super_secret` value, return the movie theatre statistics in the following format:
+- **`/stats`** endpoint that will handle `GET` requests with URL parameters. If the URL parameters contain a password key with a `super_secret` value, return the movie theatre statistics in the following format:
     ```json
     {
         "current_income": 0,
@@ -138,3 +138,4 @@ The response is a JSON object and has the following format:
     ```
 
 #### Project page: https://hyperskill.org/projects/189
+
