@@ -55,7 +55,7 @@ The response is a JSON object and has the following format:
         ]
     }
     ```
-<br/ >
+&nbsp;
 
 - **`/purchase`** endpoint that handles `POST` requests and marks a booked ticket as purchased. A request should contain the following data:
     - row — the row number;
@@ -94,7 +94,7 @@ The response is a JSON object and has the following format:
     "error": "The number of a row or a column is out of bounds!"
     }
     ```
-    
+    &nbsp;
 - ***`/return`***  endpoint, which will handle `POST` requests and allow customers to refund their tickets.
     *Request body:*
     ```json
@@ -119,7 +119,7 @@ The response is a JSON object and has the following format:
         "error": "Wrong token!"
     }
     ```
-    
+    &nbsp;
     
 - **`/stats`** endpoint that will handle `GET` requests with URL parameters. If the URL parameters contain a password key with a `super_secret` value, return the movie theatre statistics in the following format:
     ```json
@@ -136,6 +136,6 @@ The response is a JSON object and has the following format:
     "error": "The password is wrong!"
     }
     ```
+    &nbsp;
 
 #### Project page: https://hyperskill.org/projects/189
-
