@@ -19,6 +19,7 @@ gradle/wrapper/gradle-wrapper.properties
 .gradle/
 .idea/
 build/
+**/out/
 course-info.yaml
 course-remote-info.yaml
 lesson-info.yaml
