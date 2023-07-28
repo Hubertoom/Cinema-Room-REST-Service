@@ -9,4 +9,37 @@ and display the statistics of your venue. Pass me the popcorn, please!
 
 ## Learning outcomes
 In this project, we will create a simple Spring REST service to manage a small movie theater. <br/>
-It will handle HTTP requests in controllers, create services, and respond with JSON objects.
+It will handle HTTP requests in controllers, create services, handling exception, and respond with JSON objects.
+
+## How to run
+You can simply download an archive, unzip it inside the directory you want to, and open it in your IDE. 
+
+If you want to clone the repo:
+
+- run the command line in the directory you want to store the app and type the following command: 
+  
+``git clone https://github.com/Hubertoom/Cinema-Room-REST-Service.git`` 
+
+- or start with *Project from Version Control* in your IDE by providing the URL of this repository.
+
+
+## How to use
+
+Project The project starts on ``localhost/8080`` by default. <br/>
+If port `8080` is busy on your machine, you can specify another 
+``in applicatoin.properties`` -> ``server.port=``port_number 
+
+There are 4 endpoints available:
+- ``/seats" for retrieving all seats in the cinema theatre
+- ``/purchase`` endpoint that handles ``POST`` requests and marks a booked ticket as purchased. A request should contain the following data:
+    * row — the row number;
+    * column — the column number.
+example:
+``{
+    "row": 3,
+    "column": 4
+}``
+
+
+
+#### Project page: https://hyperskill.org/projects/189
