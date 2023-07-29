@@ -151,7 +151,7 @@ The response is a JSON object and has the following format:
     "error": "The password is wrong!"
     }
     ```
-    &nbsp; 
+    &nbsp;
 
 ## Presentation video
 
