@@ -2,7 +2,7 @@ package cinema.configuration;
 
 import cinema.model.CinemaRoom;
 import cinema.model.Seat;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-@AllArgsConstructor
 public class CinemaConfiguration {
+    @Value(value = "${cinema.rows}")
+    private int rows;
+    @Value(value = "${cinema.columns}")
+    private int columns;
 
     @Bean
     public CinemaRoom cinemaRoom() {
-        return new CinemaRoom(9, 9, getSeats(), new ArrayList<>());
+        return new CinemaRoom(rows, columns, getSeats(), new ArrayList<>());
     }
     private List<Seat> getSeats() {
         List<Seat> seats = new ArrayList<>();
