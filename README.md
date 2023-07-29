@@ -7,12 +7,27 @@ The idea of a ticket booth is old-fashioned, so let's create a special service f
 Make good use of Spring and write a REST service that can show the available seats, sell and refund tickets, <br/>
 and display the statistics of your venue. Pass me the popcorn, please!
 
+## Table of contents
+* [Learning outcomes](#learning-outcomes)
+* [How to run](#how-to-run)
+* [Technologies](#technologies)
+* [How to use](#how-to-use)
+* [Presentation video](#presentation-video)
+
 ## Learning outcomes
 In this project, we will create a simple Spring REST service to manage a small movie theater. <br/>
-It will handle HTTP requests in controllers, create services, handling exception, and respond with JSON objects.
+We use Spring Boot and other technologies to create REST service. It will handle HTTP requests in controllers, handle exceptions, and respond with JSON objects.
+
+## Technologies
+- Java 17
+- Spring Boot 3.1
+- Gradle 8.1
+- HTTP
+- JSON
+- Lombok 6.6
 
 ## How to run
-You can simply download an archive, unzip it inside the directory you want to, and open it in your IDE. 
+You can download an archive, unzip it inside the directory you want to, and open it in your IDE. 
 
 If you want to clone the repo:
 
@@ -41,9 +56,9 @@ The response is a JSON object and has the following format:
             "row":1,
             "column":1
         },
-
-      ........
-
+        {
+            "more json":"values..."
+        },
         {
             "row":5,
             "column":5
@@ -61,7 +76,7 @@ The response is a JSON object and has the following format:
     - row — the row number;
     - column — the column number.
     
-    example:
+    example: <br/>
 *Request body:*
     ```json    
         {
@@ -69,7 +84,7 @@ The response is a JSON object and has the following format:
             "column": 4
         }
     ```
-    If request is correct and seat is not booked you get response containing unique UUID token for your ticket from them server:
+    If the  request is correct and the  seat is not booked,d you get response containing a  unique UUID token for your ticket from them server: <br/>
     *Response body:*
     ```json
     {
@@ -80,14 +95,14 @@ The response is a JSON object and has the following format:
         "price": 10
     }
     ```
-    otherwise, if seat is booked:
+    otherwise, if the  seat is booked: <br/>
     *Response body:*
     ```json
     {
-    "error": "The ticket has been already purchased!"
+    "error": "The ticket has already been already purchased!"
     }
     ```
-    or error if you chose unexisting seat:
+    or error if you chose an unexisting seat:
     *Response body:*
     ```json
     {
@@ -95,7 +110,7 @@ The response is a JSON object and has the following format:
     }
     ```
     &nbsp;
-- ***`/return`***  endpoint, which will handle `POST` requests and allow customers to refund their tickets.
+- ***`/return`***  endpoint will handle `POST` requests and allow customers to refund their tickets. <br/>
     *Request body:*
     ```json
     {
@@ -112,7 +127,7 @@ The response is a JSON object and has the following format:
         }
     }
     ```
-    or with an expired token or wrong tokken:
+    or with an expired token or wrong token: <br/>
     *Response body:*
     ```json
     {
@@ -129,13 +144,17 @@ The response is a JSON object and has the following format:
         "number_of_purchased_tickets": 0
     }
     ```
-    If the parameters don't contain a password key or a wrong value has been passed you get:
-    *Respone body:*
+    If the parameters don't contain a password key or a wrong value has been passed you get: <br/>
+    *Response body:*
     ```json
     {
     "error": "The password is wrong!"
     }
     ```
-    &nbsp;
+    &nbsp; 
+
+## Presentation video
+
+https://github.com/Hubertoom/readme-validatior/assets/137101859/a4e71b8b-0f9e-4bc7-a7b2-81c3f0db9c34
 
 #### Project page: https://hyperskill.org/projects/189
