@@ -155,6 +155,10 @@ The response is a JSON object and has the following format:
 
 ## Presentation video
 
-https://github.com/Hubertoom/readme-validatior/assets/137101859/a4e71b8b-0f9e-4bc7-a7b2-81c3f0db9c34
+
+
+https://github.com/Hubertoom/Cinema-Room-REST-Service/assets/137101859/49e5e262-7ee7-4f6b-81e3-71d7bbf1d162
+
+
 
 #### Project page: https://hyperskill.org/projects/189
